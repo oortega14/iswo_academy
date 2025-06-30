@@ -1,0 +1,110 @@
+# Dependencies
+frontend/node_modules/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/.pnp
+frontend/.pnp.js
+
+# Production builds
+frontend/build/
+frontend/dist/
+
+# Environment variables
+frontend/.env
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Rails specific
+backend/config/master.key
+backend/config/credentials.yml.enc
+backend/log/*
+backend/tmp/*
+backend/storage/*
+backend/storage/.keep
+backend/public/system/*
+backend/public/uploads/*
+backend/public/packs/*
+backend/public/packs-test/*
+backend/public/assets/*
+backend/public/webpacker/*
+
+# Rails cache and sessions
+backend/cache/*
+backend/sessions/*
+
+# Database
+backend/db/*.sqlite3
+backend/db/*.sqlite3-journal
+backend/db/*.sqlite3-*
+
+# Rails secrets
+backend/.secret
+backend/config/secrets.yml
+
+# Bundler
+backend/.bundle/
+backend/vendor/bundle/
+
+# RVM/rbenv
+backend/.rvmrc
+backend/.ruby-version
+backend/.ruby-gemset
+
+# Coverage reports
+coverage/
+backend/coverage/
+
+# Test results
+backend/test/tmp/
+backend/test/version_tmp/
+
+# Rails specific temporary files
+backend/tmp/
+backend/tmp/pids/
+backend/tmp/cache/
+backend/tmp/sockets/
+backend/tmp/sessions/
+
+# Ignore uploaded files in development
+backend/public/uploads/
+
+# Ignore precompiled assets
+backend/public/assets/
+
+# Ignore node_modules if using Rails with Node.js
+backend/node_modules/
+
+# Ignore yarn files in Rails
+backend/yarn-error.log
+
+# General
+*.log
+*.pid
+*.seed
+*.pid.lock
+
+# Docker
+docker-compose.override.yml
+.docker/
+
+# Ignore master key for decrypting credentials and more
+backend/config/master.key
