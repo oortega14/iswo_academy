@@ -1,0 +1,16 @@
+node_modules
+dist
+pnpm-lock.yaml.backup
+*.log
+.git
+.gitignore
+.vscode
+.env
+.env.*
+coverage
+.DS_Store
+*.swp
+npm-debug.log
+yarn-error.log
+.idea
+.tanstack/tmp

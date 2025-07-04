@@ -1,0 +1,57 @@
+services:
+  bundle_cache:
+    image: busybox
+    volumes:
+      - bundle_cache:/usr/local/bundle
+    command: sh -c "mkdir -p /usr/local/bundle && chown -R 1000:1000 /usr/local/bundle"
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    image: iswo-frontend:latest
+    container_name: iswo-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    restart: unless-stopped
+    volumes:
+      - ./frontend:/app
+      - ./frontend/node_modules:/app/node_modules
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: iswo-backend:latest
+    container_name: iswo-backend
+    ports:
+      - "4000:3000"
+    environment:
+      - RAILS_ENV=development
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/iswo_academy
+    depends_on:
+      - db
+      - bundle_cache
+    restart: unless-stopped
+    volumes:
+      - bundle_cache:/usr/local/bundle
+      - ./backend:/app
+
+  db:
+    image: postgres:17
+    container_name: iswo-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: iswo_academy
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+  bundle_cache:
